@@ -74,6 +74,6 @@ def resume():
 
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
-    ret = make_response(render_template('start.html'))
+    ret = make_response(render_template('logout.html'))
     ret.set_cookie('uuid', "------")
     return ret
