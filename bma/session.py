@@ -64,7 +64,7 @@ class Session():
     state: str = "open"
     difficulty: int = 2
     trace: str = ""
-    task_count: int = 1
+    task_count: int = 2
     hard_limits: str = "No Hard Limits"
 
 
