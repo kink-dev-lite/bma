@@ -332,7 +332,6 @@ def get_task(uuid: str, action: str = "reload") -> str:
             tmp += "\t'" + new_task(user) + "'\n"
         else:
             tmp += "\t'" + user.trace.split("|")[-1] + "'\n"
-    tmp.replace("\n", "<br>")
     U.update()
     return tmp
 

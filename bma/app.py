@@ -11,7 +11,7 @@ def start():
         uuid = request.cookies.get('uuid')
         if (uuid in U.data):
             action = str(request.form["action"])
-            text = get_task(uuid, action)
+            text = get_task(uuid, action).split("\n")
             return render_template('play.html', uuid=uuid, text=text)
         else:
             s = None
@@ -50,7 +50,7 @@ def start():
     else:
         uuid = request.cookies.get('uuid')
         if (uuid in U.data):
-            text = get_task(uuid, "reload")
+            text = get_task(uuid, "reload").split("\n")
             return render_template('play.html', uuid=uuid, text=text)
         else:
             return render_template('start.html')
