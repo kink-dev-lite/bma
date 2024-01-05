@@ -4,7 +4,7 @@ The code for the task loop
 
 from random import choice, randint
 from typing import Tuple
-from session import U, Dict, List, Session, time
+from bma.session import U, Dict, Session, time
 
 # List of tasks and descriptions
 TASKS: Dict[float, Tuple[str, str]] = {

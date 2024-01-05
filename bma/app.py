@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, make_response
-from session import Session, U, time
-from task import get_task
+from bma.session import Session, U, time
+from bma.task import get_task
 
 app = Flask(__name__)
 
