@@ -80,6 +80,15 @@ def wos():
         ret = make_response(render_template('wos.html', text=dat))
         return ret
 
+@app.route('/tos', methods=['GET', 'POST'])
+def tos():
+    ret = make_response(render_template('tos.html'))
+    return ret
+
+@app.route('/wiki', methods=['GET', 'POST'])
+def wiki():
+    ret = make_response(render_template('wiki.html'))
+    return ret
 
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
