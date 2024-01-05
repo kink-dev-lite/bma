@@ -91,16 +91,16 @@ def format_task(user: Session, dif: int) -> str:
     )
     s15 = (
             "lick_a_floor_/_toilet_/_someting_dirty"
-            "piss_your_pants"
-            "give_yourself_a_golden_shower"
-            "drink_a_cup_of_your_piss"
-            "piss_into_some_food_and_eat_it"
-            "chew_up_some_food_and_spit_it_back_out;_then_eat_it_up"
-            "chew_up_some_food_and_spit_it_back_out_on_the_floor;_then_eat_it_up"
-            "piss_on_on_the_floor;_then_lick_it_up"
-            "piss_on_on_the_floor"
-            "piss_your_pants;then_suck_the_mosture_out_of_your_clothes"
-            "crawll_on_the_floor_for_10m"
+            " piss_your_pants"
+            " give_yourself_a_golden_shower"
+            " drink_a_cup_of_your_piss"
+            " piss_into_some_food_and_eat_it"
+            " chew_up_some_food_and_spit_it_back_out;_then_eat_it_up"
+            " chew_up_some_food_and_spit_it_back_out_on_the_floor;_then_eat_it_up"
+            " piss_on_on_the_floor;_then_lick_it_up"
+            " piss_on_on_the_floor"
+            " piss_your_pants;then_suck_the_mosture_out_of_your_clothes"
+            " crawll_on_the_floor_for_10m"
     )
     s16 = "dick/clit ass ass/pussy nips mouth"
     s17 = "hand dildo marker/pen the_first_thing_you_see_that_will_fit vibe"
@@ -160,7 +160,7 @@ def format_task(user: Session, dif: int) -> str:
         if (dif >= 3):
             tmp += (f"Apply {c(s4)}"
                     f" to your {c(s5)}. It should be on the {dif}th"
-                    f"highest setting or be the {dif}th largest you own")
+                    f"highest setting or be the {dif}th largest you own.")
         elif (dif <= 2):
             tmp += (f"You may not fuck / masturbate untill told too.")
                     
@@ -182,7 +182,7 @@ def format_task(user: Session, dif: int) -> str:
     elif (i == 8):
         if (dif <= 1):
             tmp += (f"You may cover up whaterver you are currently wearing however"
-                    f"you want.")
+                    f" you want.")
         elif (dif <= 3):
             tmp += (f"You may cover up whaterver you are currently wearing however"
                     f" you want in public. You must remove these cover clothes when"
@@ -204,7 +204,7 @@ def format_task(user: Session, dif: int) -> str:
     elif (i == 13):
         if (dif <= 1):
             tmp += (f"Go to an isolated area where you do not have explicit privacy."
-                    f"There should be a  very few people at this location."
+                    f" There should be a  very few people at this location."
                     f" It should be easy not to be seen IE: Late at night,"
                     f" an empty car park, a hiking trail")
         elif (dif <= 3):
@@ -356,7 +356,7 @@ def new_task(user: Session) -> str:
         if ((user.n + 1) >= user.u):
             options.extend(user.final_kinks.split())
     while (True):
-        user.task_count += 1
+        user.task_count += randint(2, 4)
         if (user.task_count not in TASKS):
             user.task_count = 1
         if (TASKS[user.task_count][0] in options):
