@@ -63,8 +63,8 @@ class Session():
     punishments: str = "debug"
     state: str = "open"
     difficulty: int = 2
-    trace: str = ""
-    task_count: int = 2
+    trace: str = "Pledge your obedience to your master"
+    task_count: int = 1
     hard_limits: str = "No Hard Limits"
 
 
