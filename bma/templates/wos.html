@@ -59,7 +59,7 @@
         <li><a href="/">Play</a></li>
         <li><a href="/resume">Resume Game</a></li>
         <li><a href="/wiki">Wiki</a></li>
-        <li><a href="/wall-of-shame">Wall Of Shame</a></li>
+        <li class="active"><a href="/wall-of-shame">Wall Of Shame</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="https://discord.gg/CpK3QvnM"><span class="glyphicon glyphicon-log-in"></span> Discord</a></li>
@@ -73,12 +73,20 @@
     <div class="col-sm-2 sidenav">
     </div>
     <div class="col-sm-8 text-left"> 
-    <h2> Logged Out! </h2>
+    <h2> The Wall Of Shame </h2>
       <p>
-      You have now been logged out.
+      This page is a collection of blackmail on slaves who are members of the
+      Blackmail Academy and failed to obey their masters. This information is
+      released under the public domain and slaves have consented to being
+      further blackmailed with this information by whoever.
       </p>
        <hr>
-          <p><a href="/">Go Home</a></p>
+{%- for line in text -%}
+    {{ line }}
+    {%- if not loop.last -%}
+        <br />
+    {%- endif -%}
+{%- endfor -%}
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">

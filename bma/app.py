@@ -1,7 +1,7 @@
 from subprocess import run
 from flask import Flask, render_template, request, redirect, make_response
 from bma.session import Session, U, time
-from bma.task import get_task, HOOKU
+from bma.task import get_task, BMAIL_PATH
 
 app = Flask(__name__)
 
@@ -39,12 +39,6 @@ def start():
                     b_data = ""
                 s = Session(b=b, u=u, time_end=t, kinks=k, punishments=p,
                             hard_limits=l, difficulty=d, u_data=u_data, b_data=b_data)
-                cmd = ('curl -i -H "Accept: application/json" -H "Content-Type:application/json"'
-                       ' -X POST --data "{\"content\":' 
-                       f'\"A slave has been given to a dom!\"'
-                       '}"'
-                       f'"{HOOKU}"')
-                run(cmd, shell=True)
                 print(s)
             except Exception as e:
                 print(e)
@@ -78,6 +72,14 @@ def resume():
             return ret
         else:
             return render_template('resume.html')
+
+@app.route('/wall-of-shame', methods=['GET', 'POST'])
+def wos():
+    with open(BMAIL_PATH, "r") as f:
+        dat = f.readlines()
+        ret = make_response(render_template('wos.html', text=dat))
+        return ret
+
 
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
