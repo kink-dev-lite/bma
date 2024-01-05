@@ -15,7 +15,7 @@ By Tuesday though she was feeling well enough and starting to miss Bill's touch 
 """.split()
 
 # Location of saved sessions
-DATA_PATH = Path("./data.json")
+DATA_PATH = Path("~/data.json")
 
 @dataclass
 class Session():
